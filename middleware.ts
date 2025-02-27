@@ -4,9 +4,9 @@ export default clerkMiddleware();
 
 export const config = {
   matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    // Always run for API routes
+    // Protect all routes except static files and Next.js internals
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:html|css|js|jpg|jpeg|webp|png|gif|svg|ttf|woff|woff2|ico|csv|docx|xlsx|zip|webmanifest)).*)',
+    // Ensure API routes are always checked by Clerk
     '/(api|trpc)(.*)',
   ],
 };
