@@ -27,9 +27,11 @@ async function connectDB() {
       return mongoose;
     }).catch((err) => {
       console.error("MongoDB connection error:", err);
+
       throw err; // Ensure the error is properly propagated
     });
   }
+
 
   cached.conn = await cached.promise;
   return cached.conn;
